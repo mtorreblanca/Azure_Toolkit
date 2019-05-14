@@ -7,14 +7,15 @@ export class AzureHttpClient {
     get(url: string, apiKey: string) {
         console.log(apiKey);
         const headers = new HttpHeaders();
-        headers.set('Ocp-Apim-Subscription-Key', apiKey);
+        headers.append('Ocp-Apim-Subscription-Key', apiKey);
+        console.log(headers);
         return this.http.get(url, {
             headers: headers
         });
     }
     post(url, apiKey, data) {
         const headers = new HttpHeaders();
-        headers.set('Ocp-Apim-Subscription-Key', apiKey);
+        headers.append('Ocp-Apim-Subscription-Key', apiKey);
         return this.http.post(url, data, {
             headers: headers
         });
