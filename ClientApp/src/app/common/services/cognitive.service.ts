@@ -27,7 +27,7 @@ export class CognitiveService {
 
     analyzeImage(request: ComputerVisionRequest): Observable<ComputerVisionResponse> {
         return this.http.
-            post('https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Description,Tags',
+            post('https://centralus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Description,Tags',
                 this.computerVisionAPIKey, request)
             .pipe(map(response => response as BingSearchResponse)).pipe(
                 catchError(this.handleError));

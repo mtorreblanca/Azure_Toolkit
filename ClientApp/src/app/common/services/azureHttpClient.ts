@@ -5,19 +5,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AzureHttpClient {
     constructor(private http: HttpClient) { }
     get(url: string, apiKey: string) {
-        console.log(apiKey);
-        const headers = new HttpHeaders();
-        headers.append('Ocp-Apim-Subscription-Key', apiKey);
-        console.log(headers);
-        return this.http.get(url, {
-            headers: headers
-        });
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Ocp-Apim-Subscription-Key': apiKey
+            })
+        };
+        return this.http.get(url, httpOptions);
     }
     post(url, apiKey, data) {
-        const headers = new HttpHeaders();
-        headers.append('Ocp-Apim-Subscription-Key', apiKey);
-        return this.http.post(url, data, {
-            headers: headers
-        });
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Ocp-Apim-Subscription-Key': apiKey
+            })
+        };
+        return this.http.post(url, data, httpOptions);
     }
 }
