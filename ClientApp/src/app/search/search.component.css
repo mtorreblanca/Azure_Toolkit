@@ -20,3 +20,20 @@
 .currentItem div {
   margin: 20px;
 }
+
+.tag {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.label-danger{
+  color: red;
+}
+
+.label-warning{
+  color: yellow;
+}
+
+.label-default{
+  color: green;
+}
